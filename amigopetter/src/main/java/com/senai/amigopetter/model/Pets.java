@@ -1,9 +1,12 @@
 package com.senai.amigopetter.model;
 
+import java.time.LocalDate;
+
 import com.senai.amigopetter.model.enums.Disponibilidade;
 import com.senai.amigopetter.model.enums.Porte;
 import com.senai.amigopetter.model.enums.Sexo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -11,6 +14,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,12 +47,10 @@ private Porte porte;
 @Enumerated(EnumType.ORDINAL)
 private Sexo sexo;
 
-
-
 @Enumerated(EnumType.ORDINAL)
 private Disponibilidade disponiilidade;
 
-@Column(nullable = false)
+@Column(nullable = false) //ver de que tipo 
 private String fotos;
 
 @Column(nullable = false)
@@ -57,10 +60,10 @@ private String cor;
 private String vacinado;
 
 @Column(nullable = false)
-private String qtd_doses;
+private int qtd_doses;
 
 @Column(nullable = false)
-private String dt_registro;
+private LocalDate dt_registro;
 
 @Column(nullable = false)
 private String castrado;
@@ -68,10 +71,7 @@ private String castrado;
 @Column(nullable = false)
 private String descricao;
 
-@Column(nullable = false)
-private String especie;
-
-@Column(nullable = false)
-private String fotos;
-
+@OneToOne(cascade = CascadeType.ALL)
+@JoinColumn(name = "especie_id")
+private Especies especie;
 }

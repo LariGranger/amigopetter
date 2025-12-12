@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -48,5 +49,6 @@ private LocalDate dt_update;
 private LocalDate dt_nascimento;
 
 @OneToOne(cascade = CascadeType.ALL)
+@JoinColumn(name = "login_id")
 private Login login;
 }
