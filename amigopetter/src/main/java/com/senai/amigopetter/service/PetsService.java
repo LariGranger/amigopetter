@@ -56,8 +56,8 @@ public class PetsService {
         pet.setFotos(petAtualizado.getFotos());
         pet.setCor(petAtualizado.getCor());
         pet.setVacinado(petAtualizado.getVacinado());
-        pet.setQtd_doses(petAtualizado.getQtd_doses());
-        pet.setDt_registro(petAtualizado.getDt_registro());
+        pet.setQtdDoses(petAtualizado.getQtdDoses());
+        pet.setDtRegistro(petAtualizado.getDtRegistro());
         pet.setCastrado(petAtualizado.getCastrado());
         pet.setDescricao(petAtualizado.getDescricao());
         pet.setEspecie(petAtualizado.getEspecie());
