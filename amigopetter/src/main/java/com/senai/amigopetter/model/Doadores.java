@@ -2,6 +2,8 @@ package com.senai.amigopetter.model;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,28 +29,21 @@ public class Doadores {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer id;
 
-@Column(nullable = false)
 private String nome;
-
-@Column(nullable = false)
 private String cpf;
-
-@Column(nullable = false)
 private String telefone;
-
-@Column(nullable = false)
 private String email;
 
-@Column(nullable = false)
-private LocalDate dt_registro;
+@Column(nullable = false, name = "dt_registro")
+private LocalDate dtRegistro;
 
-@Column(nullable = false)
-private LocalDate dt_update;
+@Column(nullable = false, name = "dt_update")
+private LocalDate dtUpdate;
 
-@Column(nullable = false)
-private LocalDate dt_nascimento;
+@Column(nullable = false, name = "dt_nascimento")
+private LocalDate dtNascimento;
 
-@OneToOne(cascade = CascadeType.ALL)
-@JoinColumn(name = "login_id")
+@ManyToAny
+@JoinColumn(name = "fk_login")
 private Login login;
 }

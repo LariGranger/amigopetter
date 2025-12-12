@@ -23,6 +23,6 @@ public class Especies {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer id;
 
-@Column(nullable = false)
-private String nome_especie;
+@Column(nullable = false, name = "nome_especie")
+private String nomeEspecie;
 }

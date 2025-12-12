@@ -17,16 +17,9 @@ public class Login {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer id;
 
-@Column(nullable = false)
 private String usuario;
-
-@Column(nullable = false)
 private String email;
-
-@Column(nullable = false)
 private String telefone;
-
-@Column(nullable = false)
 private String senha;
 }
 

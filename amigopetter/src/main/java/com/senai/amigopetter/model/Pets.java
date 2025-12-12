@@ -2,11 +2,11 @@ package com.senai.amigopetter.model;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.ManyToAny;
+
 import com.senai.amigopetter.model.enums.Disponibilidade;
 import com.senai.amigopetter.model.enums.Porte;
 import com.senai.amigopetter.model.enums.Sexo;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,7 +15,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,46 +31,35 @@ public class Pets {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 
-@Column(nullable = false)
 private String nome;
-
-@Column(nullable = false)
 private String raca;
+private int idade;
 
-@Column(nullable = false) 
-private String idade;
-
-@Enumerated(EnumType.ORDINAL)
+@Enumerated(EnumType.STRING)
 private Porte porte;
 
-@Enumerated(EnumType.ORDINAL)
+@Enumerated(EnumType.STRING)
 private Sexo sexo;
 
-@Enumerated(EnumType.ORDINAL)
+@Enumerated(EnumType.STRING)
 private Disponibilidade disponiilidade;
 
-@Column(nullable = false) //ver de que tipo 
 private String fotos;
-
-@Column(nullable = false)
 private String cor;
-
-@Column(nullable = false)
 private String vacinado;
 
-@Column(nullable = false)
-private int qtd_doses;
+@Column(nullable = false, name = "qtd_doses")
+private int qtdDoses;
 
-@Column(nullable = false)
-private LocalDate dt_registro;
+@Column(nullable = false, name = "dt_registro")
+private LocalDate dtRegistro;
 
-@Column(nullable = false)
-private String castrado;
+private Boolean castrado;
 
-@Column(nullable = false)
+@Column(nullable = false, columnDefinition = "text")
 private String descricao;
 
-@OneToOne(cascade = CascadeType.ALL)
-@JoinColumn(name = "especie_id")
+@ManyToAny
+@JoinColumn(name = "fk_especie")
 private Especies especie;
 }
