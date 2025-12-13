@@ -42,7 +42,7 @@ private Porte porte;
 private Sexo sexo;
 
 @Enumerated(EnumType.STRING)
-private Disponibilidade disponiilidade;
+private Disponibilidade disponibilidade;
 
 private String fotos;
 private String cor;

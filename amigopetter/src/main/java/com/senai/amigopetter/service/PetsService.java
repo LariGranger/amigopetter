@@ -1,17 +1,11 @@
 package com.senai.amigopetter.service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.senai.amigopetter.model.Especies;
 import com.senai.amigopetter.model.Pets;
 import com.senai.amigopetter.model.enums.Disponibilidade;
-import com.senai.amigopetter.model.enums.Porte;
-import com.senai.amigopetter.model.enums.Sexo;
 import com.senai.amigopetter.repository.PetsRepository;
 
 @Service
@@ -72,6 +66,17 @@ public class PetsService {
 
 
     //lista pets disponiveis GET /pets/disponiveis
+    public List<Pets> listarPetsDisponiveis(){
+        return petsRepository.findByDisponibilidade(Disponibilidade.DISPONIVEL);
+    }
 
     //pets filtrados por espécie GET /pets/especie/{idEspecie}
+    public List<Pets> listarPorEspecie(Integer idEspecie){
+        return petsRepository.findByEspecie_Id(idEspecie);
+    }
+
+    //filtro especial
+    //public List<Pets> filtrar(Porte porte, Sexo sexo, String cor, Boolean vacinado){
+    //    return petsRepository.filtrarPets(porte, sexo, cor, vacinado);
+    //}
 }
