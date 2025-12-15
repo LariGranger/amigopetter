@@ -10,8 +10,8 @@ import java.util.List;
 
 @Repository
 public interface AdocoesRepository extends JpaRepository<Adocoes, Integer>{
-    List<Adocoes> findByAdotante_Id(Integer idAdotante);
-    List<Adocoes> findByDoador_Id(Integer idDoador);
-    List<Adocoes> findByPet_Id(Integer idPet);
-    List<Adocoes> findByAdotante_Id(StatusAdocao statusAdocao);
+    List<Adocoes> findByAdotantes_Id(Integer idAdotantes);
+    List<Adocoes> findByDoadores_Id(Integer idDoadores);
+    List<Adocoes> findByPets_Id(Integer idPets);
+    List<Adocoes> findByAdotantes_Id(StatusAdocao statusAdocao);
 }

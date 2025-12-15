@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AmigopetterApplication<amigopetter>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.senai.amigopetter.AmigopetterApplication",
+            "projectName": "amigopetter",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

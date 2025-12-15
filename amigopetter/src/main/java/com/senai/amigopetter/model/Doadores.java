@@ -1,14 +1,13 @@
 package com.senai.amigopetter.model;
 
 import java.time.LocalDate;
-
-import org.hibernate.annotations.ManyToAny;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,7 +39,7 @@ private LocalDate dtUpdate;
 @Column(nullable = false, name = "dt_nascimento")
 private LocalDate dtNascimento;
 
-@ManyToAny
+@ManyToOne
 @JoinColumn(name = "fk_login")
 private Login login;
 }

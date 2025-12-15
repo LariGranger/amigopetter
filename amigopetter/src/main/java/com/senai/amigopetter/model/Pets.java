@@ -1,9 +1,6 @@
 package com.senai.amigopetter.model;
 
 import java.time.LocalDate;
-
-import org.hibernate.annotations.ManyToAny;
-
 import com.senai.amigopetter.model.enums.Disponibilidade;
 import com.senai.amigopetter.model.enums.Porte;
 import com.senai.amigopetter.model.enums.Sexo;
@@ -15,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -59,7 +57,7 @@ private Boolean castrado;
 @Column(nullable = false, columnDefinition = "text")
 private String descricao;
 
-@ManyToAny
+@ManyToOne
 @JoinColumn(name = "fk_especie")
 private Especies especie;
 }
